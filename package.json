@@ -1,0 +1,53 @@
+{
+  "name": "build-keys",
+  "version": "0.0.0",
+  "description": "Get the paths of files from your build.",
+  "homepage": "https://github.com/sholladay/build-keys",
+  "main": "index.js",
+  "author": {
+    "name": "Seth Holladay",
+    "url": "http://seth-holladay.com",
+    "email": "me@seth-holladay.com"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sholladay/build-keys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sholladay/build-keys/issues",
+    "email": "me@seth-holladay.com"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "license": "MPL-2.0",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "build-data": "^0.3.0",
+    "glob": "^7.0.6"
+  },
+  "devDependencies": {
+    "eslint-config-tidy": "^0.3.0",
+    "xo": "^0.16.0"
+  },
+  "keywords": [
+    "build",
+    "builds",
+    "key",
+    "keys",
+    "path",
+    "paths",
+    "file",
+    "files",
+    "filepath",
+    "filepaths"
+  ],
+  "xo": {
+    "extend": "tidy"
+  }
+}
