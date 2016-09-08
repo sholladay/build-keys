@@ -30,6 +30,42 @@ buildKeys().then((keys) => {
 });
 ```
 
+## API
+
+### buildKeys.latest(option)
+
+#### option
+
+Type: `object`
+
+Configuration and known build data.
+
+##### cwd
+
+Type: `string`<br>
+Default: `process.cwd()`
+
+The parent directory of the build root.
+
+##### branch
+
+Type: `string`
+
+Match the files from the given branch name, rather than the most recently built branch.
+
+##### version
+
+Type: `string`
+
+Match the files from the given version, rather than the most recently built version of the branch.
+
+##### includeBranchLatest
+
+Type: `boolean`<br>
+Default: `false`
+
+Whether to also match the files at the `<branch>/latest` path.
+
 ## Contributing
 
 See our [contributing guidelines](https://github.com/sholladay/build-keys/blob/master/CONTRIBUTING.md "The guidelines for participating in this project.") for more details.
