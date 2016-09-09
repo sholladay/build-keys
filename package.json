@@ -1,6 +1,6 @@
 {
   "name": "build-keys",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Get the paths of files from your build.",
   "homepage": "https://github.com/sholladay/build-keys",
   "main": "index.js",
