@@ -38,7 +38,7 @@ buildKeys().then((keys) => {
 
 Type: `object`
 
-Configuration and known build data.
+Settings and known [build data](https://github.com/sholladay/build-data).
 
 ##### cwd
 
@@ -65,6 +65,14 @@ Type: `boolean`<br>
 Default: `false`
 
 Whether to also match the files at the `<branch>/latest` path.
+
+## Related
+
+ - [build-version](https://github.com/sholladay/build-version) - Get a version for your build.
+ - [build-data](https://github.com/sholladay/build-data) - Get metadata for your build.
+ - [build-dir](https://github.com/sholladay/build-dir) - Get a place to put your build.
+ - [build-path](https://github.com/sholladay/build-path) - Get a path for the given build.
+ - [build-files](https://github.com/sholladay/build-files) - Read the files from your build.
 
 ## Contributing
 
