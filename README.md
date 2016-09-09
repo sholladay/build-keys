@@ -22,11 +22,15 @@ Get it into your program.
 const buildKeys = require('build-keys');
 ```
 
-Get a list of the filepaths that exist within a build.
+Get a list of the filepaths that exist within the most recent build, excluding directories.
 
 ```js
-buildKeys().then((keys) => {
+buildKeys.latest().then((keys) => {
     console.log('keys:', keys);
+    // [
+    //     'master/1.0.0/foo.js',
+    //     'master/latest/foo.js'
+    // ]
 });
 ```
 
@@ -62,7 +66,7 @@ Match the files from the given version, rather than the most recently built vers
 ##### includeBranchLatest
 
 Type: `boolean`<br>
-Default: `false`
+Default: `true`
 
 Whether to also match the files at the `<branch>/latest` path.
 

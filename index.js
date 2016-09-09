@@ -38,7 +38,12 @@ const globVersions = (...versions) => {
 const buildKeys = {};
 
 buildKeys.latest = (option) => {
-    const config = Object.assign({}, option);
+    const config = Object.assign(
+        {
+            includeBranchLatest : true
+        },
+        option
+    );
     const cwd = config.cwd = path.resolve(config.cwd || '');
 
     return buildData.latest(config).then((data) => {
