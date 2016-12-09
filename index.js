@@ -37,7 +37,7 @@ const globVersions = (...versions) => {
 
 const buildKeys = {};
 
-buildKeys.latest = (option) => {
+buildKeys.latest = async (option) => {
     const config = Object.assign(
         {
             includeBranchLatest : true
@@ -46,20 +46,20 @@ buildKeys.latest = (option) => {
     );
     const cwd = config.cwd = path.resolve(config.cwd || '');
 
-    return buildData.latest(config).then((data) => {
-        const versions = [data.version];
-        if (config.includeBranchLatest) {
-            versions.push('latest');
-        }
+    const data = await buildData.latest(config);
 
-        const pattern = [data.branch, globVersions(...versions), '**'].join('/');
+    const versions = [data.version];
+    if (config.includeBranchLatest) {
+        versions.push('latest');
+    }
 
-        return keyGlob(pattern, Object.assign({}, config, {
-            cwd    : path.join(cwd, 'build'),
-            follow : true,
-            noext  : true
-        }));
-    });
+    const pattern = [data.branch, globVersions(...versions), '**'].join('/');
+
+    return keyGlob(pattern, Object.assign({}, config, {
+        cwd    : path.join(cwd, 'build'),
+        follow : true,
+        noext  : true
+    }));
 };
 
 module.exports = buildKeys;

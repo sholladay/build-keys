@@ -32,8 +32,8 @@
     "glob": "^7.0.6"
   },
   "devDependencies": {
-    "eslint-config-tidy": "^0.3.0",
-    "xo": "^0.16.0"
+    "eslint-config-tidy": "^0.4.0",
+    "xo": "^0.17.1"
   },
   "keywords": [
     "build",
