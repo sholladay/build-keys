@@ -1,12 +1,12 @@
-# build-keys [![Build status for build-keys on Circle CI.](https://img.shields.io/circleci/project/sholladay/build-keys/master.svg "Circle Build Status")](https://circleci.com/gh/sholladay/build-keys "Build Keys Builds")
+# build-keys [![Build status for build-keys](https://img.shields.io/circleci/project/sholladay/build-keys/master.svg "Build Status")](https://circleci.com/gh/sholladay/build-keys "Builds")
 
-> Get the paths of files from your build.
+> Get the paths of files from your build
 
 ## Why?
 
  - Useful for copying build artifacts.
  - Agnostic of how the files were written.
- - Excludes directories, perfect for Amazon S3.
+ - Excludes directories, perfect for [Amazon S3](https://aws.amazon.com/s3/).
 
 ## Install
 
@@ -37,6 +37,8 @@ buildKeys.latest().then((keys) => {
 ## API
 
 ### buildKeys.latest(option)
+
+Returns a `Promise<Array>` of paths for files within the latest build. Does not include directories. Designed for use with [Amazon S3](https://aws.amazon.com/s3/).
 
 #### option
 
@@ -72,12 +74,12 @@ Whether to also match the files at the `<branch>/latest` path.
 
 ## Related
 
- - [delivr](https://github.com/sholladay/delivr) - Build your code and ship it to S3.
- - [build-files](https://github.com/sholladay/build-files) - Read the files from your build.
- - [build-dir](https://github.com/sholladay/build-dir) - Get a place to put your build.
- - [build-data](https://github.com/sholladay/build-data) - Get metadata for your build.
- - [build-path](https://github.com/sholladay/build-path) - Get a path for the given build.
- - [build-version](https://github.com/sholladay/build-version) - Get a version for your build.
+ - [delivr](https://github.com/sholladay/delivr) - Build your code and ship it to [S3](https://aws.amazon.com/s3/)
+ - [build-files](https://github.com/sholladay/build-files) - Read the files from your build
+ - [build-dir](https://github.com/sholladay/build-dir) - Get a place to put your build
+ - [build-data](https://github.com/sholladay/build-data) - Get metadata for your build
+ - [build-path](https://github.com/sholladay/build-path) - Get a path for the given build
+ - [build-version](https://github.com/sholladay/build-version) - Get a version for your build
 
 ## Contributing
 
@@ -91,6 +93,6 @@ See our [contributing guidelines](https://github.com/sholladay/build-keys/blob/m
 
 ## License
 
-[MPL-2.0](https://github.com/sholladay/build-keys/blob/master/LICENSE "The license for build-keys.") © [Seth Holladay](http://seth-holladay.com "Author of build-keys.")
+[MPL-2.0](https://github.com/sholladay/build-keys/blob/master/LICENSE "License for build-keys") © [Seth Holladay](https://seth-holladay.com "Author of build-keys")
 
 Go make something, dang it.

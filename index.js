@@ -44,7 +44,8 @@ buildKeys.latest = async (option) => {
         },
         option
     );
-    const cwd = config.cwd = path.resolve(config.cwd || '');
+    const cwd = path.resolve(config.cwd || '');
+    config.cwd = cwd;
 
     const data = await buildData.latest(config);
 
