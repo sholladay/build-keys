@@ -1,38 +1,25 @@
 'use strict';
 
+const { promisify } = require('util');
 const path = require('path');
 const glob = require('glob');
 const buildData = require('build-data');
 
-const keyGlob = (pattern, option) => {
-    const config = Object.assign({}, option, {
-        nodir : true
-    });
-    return new Promise((resolve, reject) => {
-        glob(pattern, config, (err, filePaths) => {
-            if (err) {
-                reject(err);
-                return;
-            }
-            resolve(filePaths);
-        });
-    });
-};
+const pGlob = promisify(glob);
 
 const globVersions = (...versions) => {
     if (versions.length < 2) {
         return versions[0];
     }
 
-    const reduced = versions.reduce((accumulated, version) => {
+    const csv = versions.reduce((accumulated, version) => {
         if (!version) {
             return accumulated;
         }
-
         return accumulated ? accumulated + ',' + version : version;
     });
 
-    return '{' + reduced + '}';
+    return '{' + csv + '}';
 };
 
 const buildKeys = {};
@@ -54,12 +41,13 @@ buildKeys.latest = async (option) => {
         versions.push('latest');
     }
 
-    const pattern = [data.branch, globVersions(...versions), '**'].join('/');
+    const pattern = `${data.branch}/${globVersions(...versions)}/**`;
 
-    return keyGlob(pattern, Object.assign({}, config, {
+    return pGlob(pattern, Object.assign({}, config, {
         cwd    : path.join(cwd, 'build'),
         follow : true,
-        noext  : true
+        noext  : true,
+        nodir  : true
     }));
 };
 
